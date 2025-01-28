@@ -1,22 +1,34 @@
-
+"use client"
 import Image from "next/image";
 import Todo from "./components/todo/Todo";
+import { useState } from "react";
 
 export default function Home() {
-  
+  const [formData, setFormData] = useState({
+    title: "",
+    description: '',
+  })
 
-
+  const onChangeHandler = (e)=>{
+    e.preventDefault()
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData(form => ({...form,[name]:value}));
+    console.log(formData)
+  }
 
   return (
     <>
       <form className="flex items-start flex-col gap-2 w-[80%] max-w-[600] mt-24 px-2 mx-auto ">
-        <input
+        <input onChange={onChangeHandler}
+        value={formData.title}
           type="text"
           name="title"
           placeholder="inter title"
           className="px-3 py-2 border-2 w-full "
         />
-        <textarea
+        <textarea onChange={onChangeHandler}
+        value={formData.description}
           name="description"
           placeholder="inter description"
           className="px-3 py-2 border-2 w-full "
