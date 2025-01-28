@@ -1,6 +1,12 @@
+
 import Image from "next/image";
+import Todo from "./components/todo/Todo";
 
 export default function Home() {
+  
+
+
+
   return (
     <>
       <form className="flex items-start flex-col gap-2 w-[80%] max-w-[600] mt-24 px-2 mx-auto ">
@@ -42,17 +48,7 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Apple MacBook Pro 17"
-              </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">Laptop</td>
-              <td className="px-6 py-4">$2999</td>
-            </tr>
+          <Todo></Todo>
 
           </tbody>
         </table>
