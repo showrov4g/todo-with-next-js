@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Todo from "./components/todo/Todo";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -10,16 +11,29 @@ export default function Home() {
   })
 
   const onChangeHandler = (e)=>{
-    e.preventDefault()
     const name = e.target.name;
     const value = e.target.value;
     setFormData(form => ({...form,[name]:value}));
     console.log(formData)
   }
 
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    try {
+      //api code 
+
+
+      toast.success('Success')
+
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <>
-      <form className="flex items-start flex-col gap-2 w-[80%] max-w-[600] mt-24 px-2 mx-auto ">
+    <ToastContainer />
+      <form onSubmit={handleSubmit}  className="flex items-start flex-col gap-2 w-[80%] max-w-[600] mt-24 px-2 mx-auto ">
         <input onChange={onChangeHandler}
         value={formData.title}
           type="text"
