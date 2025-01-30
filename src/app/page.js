@@ -26,13 +26,14 @@ export default function Home() {
       toast.success('Success')
 
     } catch (error) {
-      
+      //show error message
+      toast.error("error")
     }
   }
 
   return (
     <>
-    <ToastContainer />
+    <ToastContainer theme="dark"/>
       <form onSubmit={handleSubmit}  className="flex items-start flex-col gap-2 w-[80%] max-w-[600] mt-24 px-2 mx-auto ">
         <input onChange={onChangeHandler}
         value={formData.title}
